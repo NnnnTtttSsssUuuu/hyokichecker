@@ -1,0 +1,127 @@
+orange <!DOCTYPE html>
+
+<!-- 2024/5/7 仮バージョンを試用サイトにアップロード
+5/14 内部コード修正
+6/19 「差別語・不快語・要注意語データベース」に対応
+7/16 CSVファイルの入出力に対応 
+7/22 内部コード修正、CSVファイルの直接読み書きに対応
+7/23 差別語・不快語・要注意語を別扱いで処理
+8/6  仮公開バージョン-->
+
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/QCfavicon.ico">
+  <title>表記Quickチェッカー(仮)</title>
+</head>
+
+<body>
+  <header>
+    <nav class="pc-nav">
+      <ul>
+        <li><a class="gray" href="index.html">表記Quickチェッカー(仮)</a></li>
+        <li><a href="about.html">使い方</a></li>
+        <li><a href="yougodb.html">差別語・不快語・要注意語データベース</a></li>
+      </ul>
+    </nav>
+
+    <nav class="sp-nav">
+      <ul>
+        <li><a href="index.html">表記Quickチェッカー(仮)</a></li>
+        <li><a href="about.html">使い方</a></li>
+        <li><a href="yougodb.html">差別語・不快語・要注意語データベース</a></li>
+        <li class="close"><span>閉じる</span></li>
+      </ul>
+    </nav>
+
+    <div id="hamburger">
+      <span></span>
+    </div>
+
+    <h1>表記<span class="red qq">Q</span>uickチェッカー(仮)<br></h1>
+    <div class="subtitle">produced by Shogakukan Shuppan <span class="red qqq">Q</span>uality Center</div>
+  </header>
+
+  <p><br>
+    テキストの表記を「検索ワード」と照合してチェックします。
+    <br>検索ワードは「差別語・不快語・要注意語リスト」と「表記統一ワードリスト」の2種類があります。それぞのリストは「<span class="red bold">＋</span>」マークをクリックして確認できます。
+    <br>表記統一ワードは自由にカスタマイズできます。オリジナルの表記統一ワードを使用したいときは、「ファイルを選択する」ボタンを押して、あらかじめ準備しておいたリストを読み込んでください。
+    <br>検索ワードの準備ができたら、調べたいテキストを入力してcheckボタンを押してください。<br>※表記統一ワードリストの作り方など、詳しくは<a href="about.html"
+      target="_blank">表記チェッカーの使い方</a>をお読みください。</small>
+  </p>
+
+  <section class="section0">
+    <h3 class="accordion_title js-accordion-title">差別語・不快語・要注意語リスト
+      <span class="titleList">（使用ファイル：
+        <span id="safuchuFileName">差不注DB＋QCリスト.csv
+        </span>）
+      </span>
+    </h3>
+
+    <div class="accordion_content">
+
+      <table id="safuchuList"></table>
+
+      <br><button id="clearSafuchuButton"> 差別語・不快語・要注意語チェックをしない</button>
+
+      <br>
+    </div>
+
+  </section>
+
+
+  <section class="section1">
+    <h3 class="accordion_title js-accordion-title">表記統一ワードリスト
+      <span class="titleList">（使用ファイル：
+        <span id="criteriaInputFileName">小学館QC標準表記統一ワードリスト0723.csv
+        </span>）
+      </span>
+    </h3>
+
+    <div class="accordion_content">
+
+      <table id="tateList"></table>
+
+      <br><button id="clearCriteriaButton"> 表記統一ワードを消去する</button>
+      <button id="saveCriteriaButton">外部に保存する</button>
+
+      <br><br>
+      <label>表記統一ワードの読み込み：
+        <button id="fileInputButton">ファイルを選択する</button>
+        <input type="file" accept=".txt, .csv" id="fileInput">
+      </label>
+      <br>
+    </div>
+
+  </section>
+
+
+
+  <h3>　　調べたいテキスト</h3>
+
+  <div class="section2">
+    <textarea id="input" placeholder="調べたいテキストを入力してください"></textarea>
+  </div>
+
+  <p>
+    <button id="checkButton">Check</button>
+    <button id="clearButton">Clear Text</button>
+  </p>
+
+  <p id="chuuki"></p>
+  <table id="criteriaYellowList"></table>
+  <table id="criteriaList"></table>
+  <table id="criteriaGreenList"></table>
+  <p id="output" contenteditable="true"></p>
+
+  <div id="qualityCenter">本WEBアプリは小学館出版クォリティーセンターが制作しました<br><br>last updated at 2024/7/18 
+    <br>coding by Nobuo Tsukahara
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
