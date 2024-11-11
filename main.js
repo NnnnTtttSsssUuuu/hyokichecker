@@ -11,12 +11,10 @@
   let criteriaCSV = [];
 
   //立ち上げ時の処理
-  // document.addEventListener("DOMContentLoaded", displayTateList());
-
   document.addEventListener("DOMContentLoaded", function () {
+
     const safuchuFileName = document.getElementById('safuchuFileName');
     const openSafuchuFile = safuchuFileName.textContent;
-
     const criteriaInputFileName = document.getElementById('criteriaInputFileName');
     const openCriteriaFile = criteriaInputFileName.textContent;
 
@@ -29,7 +27,6 @@
       })
       .then(data => {
         let openSafuchu = data;
-
         yomikomiSafuchu(openSafuchu);
         displaySafuchuList();
       })
@@ -39,7 +36,7 @@
       });
 
 
-    fetch(openCriteriaFile)
+    fetch(openCriteriaFile, { cache: "no-cache" })
       .then(response => {
         if (!response.ok) {
           throw new Error("Network response was not ok" + response.statusText);
@@ -109,13 +106,10 @@
 
     countRed = new Array(maxLength);
     countRed.fill(0);
+
     countBlue = new Array(maxLength);
     countBlue.fill(0);
 
-    // if (criteriaTextYellow) {
-    //   countYellow = new Array(yellowLength);
-    //   countYellow.fill(0);
-    // }
     countYellow = new Array(yellowLength);
     countYellow.fill(0);
 
@@ -190,7 +184,7 @@
           if (inputText.startsWith(value, i) && checked === "" && value.length > 0) {
             c = value;
             i = i + value.length - 1;
-            klass.push("midoriami note-container");
+            klass.push("greenami note-container");
             checked = "check";
             let checkit = countGreen[index];
             countGreen.fill(checkit + 1, index, index + 1);
@@ -209,7 +203,6 @@
       spanElement.className = klass;
       spanChuElement.textContent = chuki;
       spanChuElement.className = "note";
-
       spanElement.appendChild(spanChuElement);
       outputText.appendChild(spanElement);
     }  // ループ終わり
@@ -234,7 +227,6 @@
     alltd3.textContent = "出現数";
     alltd4.textContent = "表記揃えワード";
     alltd5.textContent = "出現数";
-
 
     alltr.appendChild(alltd1);
     alltr.appendChild(alltd2);
@@ -312,8 +304,6 @@
     yellowList.appendChild(yellowTable);
 
     //2行目以降を入れる
-    // if (criteriaInputYellow) {
-
     for (let i = 0; i < criteriaTextYellow.length; i++) {
 
       if (countYellow[i] > 0) {
@@ -340,7 +330,6 @@
         cellText3.innerHTML = criteriaTextOrange[i];
 
         row.appendChild(cellText3);
-        // row.appendChild(cellText4);
         yellowtbody.appendChild(row);
         yellowTable.appendChild(yellowtbody);
         yellowList.appendChild(yellowTable);
@@ -373,8 +362,6 @@
     greenList.appendChild(greenTable);
 
     //2行目以降を入れる
-    // if (criteriaInputGreen) {
-
     for (let i = 0; i < criteriaTextGreen.length; i++) {
 
       if (countGreen[i] > 0) {
@@ -442,10 +429,10 @@
   document.querySelector('#clearCriteriaButton').addEventListener('click', () => {
     const criteriaInputFileName = document.getElementById('criteriaInputFileName');
     criteriaInputFileName.textContent = "";
-    // const titleList = document.querySelector('.titleList');
-    // titleList.style.display = 'none';
     const tateList = document.getElementById('tateList');
     tateList.textContent = "";
+    const fileInput = document.getElementById('fileInput');
+    fileInput.value = "";
     criteriaTextRed.fill("");
     criteriaTextBlue.fill("");
     criteriaTextGreen.fill("");
@@ -476,8 +463,6 @@
   fileInput.addEventListener('change', (e) => {
     criteriaTextRed = [];
     criteriaTextBlue = [];
-    criteriaTextYellow = [];
-    criteriaTextOrange = [];
     criteriaTextGreen = [];
     criteriaTextGreen2 = [];
     criteriaCSV = [];
@@ -491,7 +476,7 @@
     criteriaInputFileName.textContent = criteriaInputFile[0].name;
 
     if (file.type === "text/csv") {
-      if (file.size < 100000) {
+      if (file.size < 102400) {
         reader.onload = () => {
           let shinCriteria = reader.result;
           shinCriteria = shinCriteria.replace(/[ 　]/g, "");
@@ -508,6 +493,7 @@
     } else { alert("CSVファイルではありません"); }
   }, false)
 
+
   //差不注ワード読み込み関数
   function yomikomiSafuchu(openSafuchu) {
     const rows = openSafuchu.split('\n');
@@ -517,6 +503,7 @@
       criteriaTextOrange[i] = row[1];
     }
   }
+
 
   //初期の検索ワード読み込み関数
   function yomikomi(openCriteria) {
@@ -530,20 +517,6 @@
     }
   }
 
-  //途中からの検索ワード読み込み関数
-  // function yomikomi2(shinCriteria) {
-  //   const rows = shinCriteria.split('\n');
-  //   for (let i = 1; i < rows.length; i++) {
-  //     const row = rows[i].split(',');
-  //     // criteriaTextYellow[i] = row[0];
-  //     // criteriaTextOrange[i] = row[1];
-  //     criteriaTextRed[i] = row[0];
-  //     criteriaTextBlue[i] = row[1];
-  //     criteriaTextGreen[i] = row[2];
-  //     criteriaTextGreen2[i] = row[3];
-  //   }
-  // }
-
 
   //差不注リストの作成
   function displaySafuchuList() {
@@ -554,14 +527,10 @@
     const safuchutd1 = document.createElement("th");
     const safuchutd2 = document.createElement("th");
 
-
     safuchutd1.textContent = "差不注ワード";
     safuchutd2.textContent = "差不注ワードの注記";
-
-
     safuchuthead.appendChild(safuchutd1);
     safuchuthead.appendChild(safuchutd2);
-
     safuchuTable.appendChild(safuchuthead);
     safuchuList.appendChild(safuchuTable);
 
@@ -595,14 +564,11 @@
       cellText2.innerHTML = criteriaTextOrange[i];
       row.appendChild(cellText2);
 
-
       safuchutbody.appendChild(row);
       safuchuTable.appendChild(safuchutbody);
       safuchuList.appendChild(safuchuTable);
     }
   }
-
-
 
 
   //縦型リストの作成
@@ -686,6 +652,7 @@
     }
   }
 
+
   //クレジット
   document.querySelector('.qqq').addEventListener('click', () => {
     const qualityCenter = document.getElementById("qualityCenter");
@@ -696,6 +663,7 @@
     const qualityCenter = document.getElementById("qualityCenter");
     qualityCenter.style.display = "none";
   });
+
 
   //アコーディオンメニュー
   document.addEventListener("DOMContentLoaded", () => {
@@ -710,6 +678,7 @@
     }
   });
 
+  
   //スマホ操作時のナビゲーション
   document.querySelector('#hamburger').addEventListener('click', () => {
     const nav = document.querySelector('.sp-nav');

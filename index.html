@@ -8,7 +8,9 @@
 7/23 差別語・不快語・要注意語を別扱いで処理
 10/3  仮公開バージョン
 10/10 (仮)を削除
-10/28 差別語・不快語・要注意語DBのURL修正-->
+10/28 差別語・不快語・要注意語DBのURL修正
+10/30 ワードの色分けを変更。リスト読み込み時の不具合を改修
+11/6 ワードリスト作成ツールを実装-->
 
 <html lang="ja">
 
@@ -26,7 +28,8 @@
       <ul>
         <li><a class="gray" href="index.html">表記Quickチェッカー</a></li>
         <li><a href="about.html">使い方</a></li>
-        <li><a href="yougodb.html">差別語・不快語・要注意語データベース</a></li>
+        <li><a href="yougodb.html">差別語・不快語・要注意語</a></li>
+        <li><a href="selectsheet.html">ワードリストをつくる</a></li>
       </ul>
     </nav>
 
@@ -34,7 +37,8 @@
       <ul>
         <li><a href="index.html">表記Quickチェッカー</a></li>
         <li><a href="about.html">使い方</a></li>
-        <li><a href="yougodb.html">差別語・不快語・要注意語データベース</a></li>
+        <li><a href="yougodb.html">差別語・不快語・要注意語</a></li>
+        <li><a href="selectsheet.html">ワードリストをつくる</a></li>
         <li class="close"><span>閉じる</span></li>
       </ul>
     </nav>
@@ -51,7 +55,7 @@
     テキストの表記を「検索ワード」と照合してチェックします。
     <br>検索ワードは「差別語・不快語・要注意語リスト」と「表記統一ワードリスト」の2種類があります。それぞれのリストは「<span class="red bold">＋</span>」マークをクリックして確認できます。
     <br>表記統一ワードは自由にカスタマイズできます。オリジナルの表記統一ワードを使用したいときは、「ファイルを選択する」ボタンを押して、あらかじめ準備しておいたリストを読み込んでください。
-    <br>検索ワードの準備ができたら、調べたいテキストを入力してcheckボタンを押してください。<br>※表記統一ワードリストの作り方など、詳しくは<a href="about.html"  target="_blank">表記チェッカーの使い方</a>をお読みください。</small>
+    <br>検索ワードの準備ができたら、調べたいテキストを入力してcheckボタンを押してください。<br>※表記統一ワードリストの作り方など、詳しくは<a href="about.html"  target="_blank">表記チェッカーの使い方</a>をお読みください。
     <br><span class="red">※本サイトは、WindowsとMacintosh の ChromeとEdge 上での動作を確認しています。詳しくは<a href="about.html#dousakankyo"  target="_blank">こちら</a>をご確認ください。</span>
   </p>
 
@@ -119,7 +123,7 @@
   <table id="criteriaGreenList"></table>
   <p id="output" contenteditable="true"></p>
 
-  <div id="qualityCenter">本WEBアプリは小学館出版クォリティーセンターが制作しました<br><br>last updated at 2024/10/28 
+  <div id="qualityCenter">本WEBアプリは小学館出版クォリティーセンターが制作しました<br><br>last updated at 2024/11/6 
     <br>coding by Nobuo Tsukahara
   </div>
 
