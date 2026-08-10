@@ -297,7 +297,8 @@
     yellowtd1.textContent = "No.";
     yellowtd2.textContent = "差不注商ワード　";
     yellowtd3.textContent = "出現数";
-    yellowtd4.textContent = "注記";
+    yellowtd4.textContent = "注記 [言い換え提案語は→の後]";
+
 
     yellowtr.appendChild(yellowtd1);
     yellowtr.appendChild(yellowtd2);
