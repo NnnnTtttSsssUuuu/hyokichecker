@@ -547,6 +547,33 @@ td:nth-of-type(5) {
   background: lavender;
 }
 
+.toDatabase {
+  display: inline-block;
+  /* padding: 0.5em 1em;
+  margin: 0.5em 0;
+  background-color: #4af;
+    border-radius: 5px;
+  color: white; */
+
+  color: black;
+  text-decoration: none;
+}
+
+.toDatabase:hover {
+  color: red; 
+  text-decoration: underline;
+}
+
+.arrow {
+  display: inline-block;
+  width: 13px;
+  height: 12px;
+  background: #000000;
+  clip-path: polygon(0 31%, 63.2% 31%, 63.2% 0, 100% 50%, 63.2% 100%, 63.2% 69%, 0 69%);
+}
+
+
+
 
 @media screen and (max-width: 380px) {
 
