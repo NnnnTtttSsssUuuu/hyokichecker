@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 
 <!-- 2024/5/7 仮バージョンを試用サイトにアップロード
 5/14 内部コード修正
@@ -28,18 +28,18 @@
     <nav class="pc-nav">
       <ul>
         <li><a class="gray" href="index.html">checker</a></li>
-        <li><a href="about.html"  target="_blank">使い方</a></li>
-        <li><a href="yougodb.html"  target="_blank">差別語／商標</a></li>
-        <li><a href="selectsheet.html"  target="_blank">ワードリストをつくる</a></li>
+        <li><a href="about.html" target="_blank">使い方</a></li>
+        <li><a href="yougodb.html" target="_blank">差別語／商標</a></li>
+        <li><a href="selectsheet.html" target="_blank">ワードリストをつくる</a></li>
       </ul>
     </nav>
 
     <nav class="sp-nav">
       <ul>
         <li><a href="index.html">表記Quickチェッカー</a></li>
-        <li><a href="about.html"  target="_blank">使い方</a></li>
-        <li><a href="yougodb.html"  target="_blank">差別語・不快語・要注意語</a></li>
-        <li><a href="selectsheet.html"  target="_blank">ワードリストをつくる</a></li>
+        <li><a href="about.html" target="_blank">使い方</a></li>
+        <li><a href="yougodb.html" target="_blank">差別語・不快語・要注意語</a></li>
+        <li><a href="selectsheet.html" target="_blank">ワードリストをつくる</a></li>
         <li class="close"><span>閉じる</span></li>
       </ul>
     </nav>
@@ -56,7 +56,8 @@
     テキストの表記を「検索ワード」と照合してチェックします。
     <br>検索ワードは「差別語・不快語・要注意語・商標リスト」と「表記統一ワードリスト」の2種類があります。それぞれのリストは「<span class="red bold">＋</span>」マークをクリックして確認できます。
     <br>表記統一ワードは自由にカスタマイズできます。オリジナルの表記統一ワードを使用したいときは、「ファイルを選択する」ボタンを押して、あらかじめ準備しておいたリストを読み込んでください。
-    <br>検索ワードの準備ができたら、調べたいテキストを入力してcheckボタンを押してください。<br>※表記統一ワードリストの作り方など、詳しくは<a href="about.html"  target="_blank">表記チェッカーの使い方</a>をお読みください。
+    <br>検索ワードの準備ができたら、調べたいテキストを入力してcheckボタンを押してください。<br>※表記統一ワードリストの作り方など、詳しくは<a href="about.html"
+      target="_blank">表記チェッカーの使い方</a>をお読みください。
     <br><span class="red">※商標チェック機能を追加しました(2026/8/7）。
       <!-- <br>※本サイトは、WindowsとMacintosh の ChromeとEdge 上での動作を確認しています。詳しくは<a href="about.html#dousakankyo"  target="_blank">こちら</a>をご確認ください。</span> -->
   </p>
@@ -123,9 +124,17 @@
   <table id="criteriaYellowList"></table>
   <table id="criteriaList"></table>
   <table id="criteriaGreenList"></table>
-  <p id="output" contenteditable="true"></p>
+  <div id="endOfTable">
+    <button id="printButton">リストを印刷する</button>
+    <br> ※リストはマウスで選択してコピーし、excelのワークシートに貼り付けることもできます。
 
-  <div id="qualityCenter">本WEBアプリは小学館出版クォリティーセンターが制作しました<br><br>last updated at 2026/8/7 
+    <hr>
+  </div>
+  <p id="output" contenteditable="true">
+
+  </p>
+
+  <div id="qualityCenter">本WEBアプリは小学館出版クォリティーセンターが制作しました<br><br>last updated at 2026/8/7
     <br>coding by Nobuo Tsukahara
   </div>
 

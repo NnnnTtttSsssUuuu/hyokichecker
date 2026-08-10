@@ -205,6 +205,11 @@
       spanChuElement.className = "note";
       spanElement.appendChild(spanChuElement);
       outputText.appendChild(spanElement);
+
+      //プリントボタン表示
+      // document.getElementById("endOfTable").style.display = "block";
+
+
     }  // ループ終わり
 
     // console.log("outputText", outputText);
@@ -290,7 +295,7 @@
     const yellowtd4 = document.createElement("th");
 
     yellowtd1.textContent = "No.";
-    yellowtd2.textContent = "差不注ワード　";
+    yellowtd2.textContent = "差不注商ワード　";
     yellowtd3.textContent = "出現数";
     yellowtd4.textContent = "注記";
 
@@ -527,8 +532,8 @@
     const safuchutd1 = document.createElement("th");
     const safuchutd2 = document.createElement("th");
 
-    safuchutd1.textContent = "差不注ワード";
-    safuchutd2.textContent = "差不注ワードの注記";
+    safuchutd1.textContent = "差不注商ワード";
+    safuchutd2.textContent = "差不注商ワードの注記";
     safuchuthead.appendChild(safuchutd1);
     safuchuthead.appendChild(safuchutd2);
     safuchuTable.appendChild(safuchuthead);
@@ -678,7 +683,7 @@
     }
   });
 
-  
+
   //スマホ操作時のナビゲーション
   document.querySelector('#hamburger').addEventListener('click', () => {
     const nav = document.querySelector('.sp-nav');
@@ -689,5 +694,23 @@
     const nav = document.querySelector('.sp-nav');
     nav.classList.toggle('toggle');
   });
+
+// プリントボタン押下の処理
+document.querySelector('#printButton').addEventListener('click', () => {
+  document.getElementsByClassName('section0')[0].style.display = 'none';
+  document.getElementsByClassName('section1')[0].style.display = 'none';
+    document.getElementById('endOfTable').style.display = 'none';
+
+  window.print()
+
+  document.getElementsByClassName('section0').style.display = 'block';
+  document.getElementsByClassName('section1').style.display = 'block';
+    document.getElementById('endOfTable').style.display = 'block';
+
+});
+
+
+
+
 
 }
