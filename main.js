@@ -1,7 +1,6 @@
 `use strict`;
 
 {
-
   let criteriaTextRed = [];
   let criteriaTextBlue = [];
   let criteriaTextYellow = [];
@@ -58,7 +57,6 @@
 
   // チェックボタン押下の処理
   document.querySelector('#checkButton').addEventListener('click', () => {
-
     const inputText = document.querySelector('#input').value;
     const outputText = document.querySelector('#output');
     const chuukiText = document.querySelector('#chuuki');
@@ -206,11 +204,10 @@
       spanElement.appendChild(spanChuElement);
       outputText.appendChild(spanElement);
 
-      //プリントボタン表示
-      // document.getElementById("endOfTable").style.display = "block";
-
-
     }  // ループ終わり
+
+    //プリントボタン表示
+    document.getElementById("endOfTable").style.display = "block";
 
     // console.log("outputText", outputText);
     // alert("チェック終了");
@@ -278,11 +275,11 @@
 
         row.appendChild(cellText4);
         alltbody.appendChild(row);
-        allTable.appendChild(alltbody);
-        allList.appendChild(allTable);
-
       }
     }
+    allTable.appendChild(alltbody);
+    allList.appendChild(allTable);
+
 
     //黄色ワードの表を入れる
     const yellowTable = document.createElement("table");
@@ -295,10 +292,9 @@
     const yellowtd4 = document.createElement("th");
 
     yellowtd1.textContent = "No.";
-    yellowtd2.textContent = "差不注商ワード　";
+    yellowtd2.textContent = "差不注商ワード";
     yellowtd3.textContent = "出現数";
-    yellowtd4.textContent = "注記 [言い換え提案語は→の後]";
-
+    yellowtd4.innerHTML = "注記 <span class=titlemini>[言い換え提案語は➡の後]</span>";
 
     yellowtr.appendChild(yellowtd1);
     yellowtr.appendChild(yellowtd2);
@@ -337,11 +333,10 @@
 
         row.appendChild(cellText3);
         yellowtbody.appendChild(row);
-        yellowTable.appendChild(yellowtbody);
-        yellowList.appendChild(yellowTable);
       }
     }
-
+    yellowTable.appendChild(yellowtbody);
+    yellowList.appendChild(yellowTable);
 
     //緑色ワードの表を入れる
     const greenTable = document.createElement("table");
@@ -396,12 +391,13 @@
         row.appendChild(cellText3);
         // row.appendChild(cellText4);
         greentbody.appendChild(row);
-        greenTable.appendChild(greentbody);
-        greenList.appendChild(greenTable);
       }
-
     }
-  });
+    greenTable.appendChild(greentbody);
+    greenList.appendChild(greenTable);
+
+
+  });  // チェックボタン押下の処理終わり
 
 
   // テキストクリアボタン押下の処理
@@ -569,11 +565,10 @@
       //第2列
       cellText2.innerHTML = criteriaTextOrange[i];
       row.appendChild(cellText2);
-
       safuchutbody.appendChild(row);
-      safuchuTable.appendChild(safuchutbody);
-      safuchuList.appendChild(safuchuTable);
     }
+    safuchuTable.appendChild(safuchutbody);
+    safuchuList.appendChild(safuchuTable);
   }
 
 
@@ -653,9 +648,9 @@
       row.appendChild(cellText4);
 
       tatetbody.appendChild(row);
-      tateTable.appendChild(tatetbody);
-      tateList.appendChild(tateTable);
     }
+    tateTable.appendChild(tatetbody);
+    tateList.appendChild(tateTable);
   }
 
 
@@ -696,22 +691,12 @@
     nav.classList.toggle('toggle');
   });
 
-// プリントボタン押下の処理
-document.querySelector('#printButton').addEventListener('click', () => {
-  document.getElementsByClassName('section0')[0].style.display = 'none';
-  document.getElementsByClassName('section1')[0].style.display = 'none';
-    document.getElementById('endOfTable').style.display = 'none';
 
-  window.print()
-
-  document.getElementsByClassName('section0').style.display = 'block';
-  document.getElementsByClassName('section1').style.display = 'block';
-    document.getElementById('endOfTable').style.display = 'block';
-
-});
+  // プリントボタン押下の処理
+  document.querySelector('#printButton').addEventListener('click', () => {
+    window.print();
 
 
-
-
+  });
 
 }

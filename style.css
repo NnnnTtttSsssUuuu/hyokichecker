@@ -21,13 +21,13 @@ body {
   vertical-align: middle;
 }
 
-.section0,.section1 {
+#section0,#section1 {
   margin: 5px 30px 10px 30px;
   padding: 5px 10px 10px 10px;
   border: 1px solid black;
 }
 
-.section2 {
+#section2 {
   margin: 5px 30px 10px 30px;
   padding: 0;
 }
@@ -107,10 +107,8 @@ table {
 
 table th,
 table td {
-  top: 0;
   border: solid 1px;
   border-bottom: 1px solid #000;
-  margin: 2em;
 }
 
 #safuchuList,#tateList {
@@ -575,6 +573,36 @@ td:nth-of-type(5) {
 #endOfTable{
   display: none;
   margin: 0 0 0 2em;
+}
+
+.titlemini{
+  font-size: 80%;
+  font-weight: normal
+}
+
+@media print {
+  body > * {
+    display: none !important;
+  }
+
+  #section3 {
+    display: block !important;
+  }
+
+    th,
+    th * {
+        position: static !important;
+    }
+
+  thead {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    z-index: auto !important;
+  }
+
+
+
 }
 
 

@@ -38,7 +38,7 @@
       <ul>
         <li><a href="index.html">表記Quickチェッカー</a></li>
         <li><a href="about.html" target="_blank">使い方</a></li>
-        <li><a href="yougodb.html" target="_blank">差別語・不快語・要注意語</a></li>
+        <li><a href="yougodb.html" target="_blank">差別語／商標</a></li>
         <li><a href="selectsheet.html" target="_blank">ワードリストをつくる</a></li>
         <li class="close"><span>閉じる</span></li>
       </ul>
@@ -62,7 +62,7 @@
       <!-- <br>※本サイトは、WindowsとMacintosh の ChromeとEdge 上での動作を確認しています。詳しくは<a href="about.html#dousakankyo"  target="_blank">こちら</a>をご確認ください。</span> -->
   </p>
 
-  <section class="section0">
+  <section id="section0">
     <h3 class="accordion_title js-accordion-title">差別語・不快語・要注意語・商標リスト
       <span class="titleList">（使用ファイル：
         <span id="safuchuFileName">use_with_caution_terms.csv
@@ -82,7 +82,7 @@
   </section>
 
 
-  <section class="section1">
+  <section id="section1">
     <h3 class="accordion_title js-accordion-title">表記統一ワードリスト
       <span class="titleList">（使用ファイル：
         <span id="criteriaInputFileName">小学館QC標準表記統一ワードリスト0723.csv
@@ -111,7 +111,7 @@
 
   <h3>　　調べたいテキスト</h3>
 
-  <div class="section2">
+  <div id="section2">
     <textarea id="input" placeholder="調べたいテキストを入力してください"></textarea>
   </div>
 
@@ -120,10 +120,14 @@
     <button id="clearButton">Clear Text</button>
   </p>
 
-  <p id="chuuki"></p>
-  <table id="criteriaYellowList"></table>
-  <table id="criteriaList"></table>
-  <table id="criteriaGreenList"></table>
+  <div id="section3">
+    <h3>　　チェック結果</h3>
+    <p id="chuuki"></p>
+    <table id="criteriaYellowList"></table>
+    <table id="criteriaList"></table>
+    <table id="criteriaGreenList"></table>
+  </div>
+
   <div id="endOfTable">
     <button id="printButton">リストを印刷する</button>
     <br> ※リストはマウスで選択してコピーし、excelのワークシートに貼り付けることもできます。
