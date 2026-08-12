@@ -71,6 +71,7 @@
     yellowList.textContent = "";
     greenList.textContent = "";
 
+   document.getElementById('section3').style.display = 'block';
 
     //検索ワードの取得
     let yellowLength = criteriaTextYellow.length;
@@ -414,6 +415,8 @@
     yellowList.textContent = "";
     const greenList = document.getElementById("criteriaGreenList");
     greenList.textContent = "";
+    document.getElementById('section3').style.display = 'none';
+    document.getElementById('endOfTable').style.display = 'none';
   });
 
 

@@ -32,6 +32,10 @@ body {
   padding: 0;
 }
 
+#section3 {
+display: none;
+}
+
 textarea {
   font-family: "YuMincho", "游明朝", "Hiragino Mincho ProN", serif;
   margin: 0;
