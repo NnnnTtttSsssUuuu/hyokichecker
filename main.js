@@ -295,7 +295,7 @@
     yellowtd1.textContent = "No.";
     yellowtd2.textContent = "差不注商ワード";
     yellowtd3.textContent = "出現数";
-    yellowtd4.innerHTML = "注記 <span class=titlemini>[言い換え提案語は➡の後]</span>";
+    yellowtd4.innerHTML = "注記 <span class=titlemini>[★は特に注意が必要な商標]</span>";
 
     yellowtr.appendChild(yellowtd1);
     yellowtr.appendChild(yellowtd2);
@@ -533,7 +533,9 @@
     const safuchutd2 = document.createElement("th");
 
     safuchutd1.textContent = "差不注商ワード";
-    safuchutd2.textContent = "差不注商ワードの注記";
+    // safuchutd2.textContent = "差不注商ワードの注記";
+    safuchutd2.innerHTML = "注記 <span class=titlemini>[★は特に注意が必要な商標]</span>";
+
     safuchuthead.appendChild(safuchutd1);
     safuchuthead.appendChild(safuchutd2);
     safuchuTable.appendChild(safuchuthead);
