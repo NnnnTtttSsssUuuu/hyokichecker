@@ -52,6 +52,18 @@
         console.error("fetchの動作に問題があります:", error);
         alert("立ち上げ時に使用する検索ワードファイルが見つかりません");
       });
+
+    //2027年8月末まで掲示したいアップデート情報
+    //期間後、アップデート情報及びこのブロック全体削除可
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();  //月を取得：1月→0、9月→8
+    if (year > 2027 || (year === 2027 && month >= 8)) {
+      const target = document.getElementById('updateNews');
+      target.style.display = 'none';
+    }
+
+
   });
 
 
@@ -71,7 +83,7 @@
     yellowList.textContent = "";
     greenList.textContent = "";
 
-   document.getElementById('section3').style.display = 'block';
+    document.getElementById('section3').style.display = 'block';
 
     //検索ワードの取得
     let yellowLength = criteriaTextYellow.length;

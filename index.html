@@ -11,15 +11,16 @@
 10/28 差別語・不快語・要注意語DBのURL修正
 10/30 ワードの色分けを変更。リスト読み込み時の不具合を改修
 11/6 ワードリスト作成ツールを実装
-2026/8/7 商標チェック機能を追加-->
+2026/8/24 商標チェック機能を追加
+     以後の修正はabout.htmlに表示-->
 
 <html lang="ja">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="img/QCfavicon.ico">
+  <link rel="stylesheet" href="style.css?v=20260824">
+  <link rel="icon" href="img/QCfavicon_g.ico">
   <title>表記Quickチェッカー</title>
 </head>
 
@@ -29,8 +30,8 @@
       <ul>
         <li><a class="gray" href="index.html">checker</a></li>
         <li><a href="about.html" target="_blank">使い方</a></li>
-        <li><a href="yougodb.html" target="_blank">差別語／商標</a></li>
-        <li><a href="selectsheet.html" target="_blank">ワードリストをつくる</a></li>
+        <!-- <li><a href="yougodb.html" target="_blank">差別語／商標</a></li> -->
+        <li><a href="selectsheet.html" target="_blank">表記統一表をつくる</a></li>
       </ul>
     </nav>
 
@@ -38,8 +39,8 @@
       <ul>
         <li><a href="index.html">表記Quickチェッカー</a></li>
         <li><a href="about.html" target="_blank">使い方</a></li>
-        <li><a href="yougodb.html" target="_blank">差別語／商標</a></li>
-        <li><a href="selectsheet.html" target="_blank">ワードリストをつくる</a></li>
+        <!-- <li><a href="yougodb.html" target="_blank">差別語／商標</a></li> -->
+        <li><a href="selectsheet.html" target="_blank">表記統一表をつくる</a></li>
         <li class="close"><span>閉じる</span></li>
       </ul>
     </nav>
@@ -48,25 +49,24 @@
       <span></span>
     </div>
 
-    <h1>表記<span class="red qq">Q</span>uickチェッカー<span class="red">[テストA]</span><br></h1>
-    <div class="subtitle">produced by Shogakukan Shuppan <span class="red qqq">Q</span>uality Center</div>
-    <br>　　<a href="testB.html" target="_blank">[テストB]を開く</a>
-     <br>　　<a href="testC.html" target="_blank">[テストC]を開く</a>
+    <h1>表記<span class="green qq">Q</span>uickチェッカー<br></h1>
+    <div class="subtitle">produced by Shogakukan Shuppan <span class="green qqq">Q</span>uality Center</div>
+
+    <span class="red" id ="updateNews">※商標チェック機能を追加しました(2026/8/24）。</span>
+
   </header>
 
   <p><br>
-    テキストの表記を「検索ワード」と照合してチェックします。
-    <br>検索ワードは「差別語・不快語・要注意語・商標リスト」と「表記統一ワードリスト」の2種類があります。それぞれのリストは「<span class="red bold">＋</span>」マークをクリックして確認できます。
-    <br>表記統一ワードは自由にカスタマイズできます。オリジナルの表記統一ワードを使用したいときは、「ファイルを選択する」ボタンを押して、あらかじめ準備しておいたリストを読み込んでください。
-    <br>検索ワードの準備ができたら、調べたいテキストを入力してcheckボタンを押してください。<br>※表記統一ワードリストの作り方など、詳しくは<a href="about.html"
-      target="_blank">表記チェッカーの使い方</a>をお読みください。
-    <br><span class="red">※商標チェック機能を追加しました(2026/8/7）。
-      <!-- <br>※本サイトは、WindowsとMacintosh の ChromeとEdge 上での動作を確認しています。詳しくは<a href="about.html#dousakankyo"  target="_blank">こちら</a>をご確認ください。</span> -->
+    テキストの表記を<span class="subKensaku2">検索ワード①②</span>と照合してチェックします。
+    <br>「調べたいテキスト」欄に入力し、checkボタンを押してください。
+    <br>ご利用の前に<a href="about.html" target="_blank">使い方</a>をお読みください。
   </p>
 
+
+
   <section id="section0">
-    <h3 class="accordion_title js-accordion-title">差別語・不快語・要注意語・商標リスト
-      <span class="titleList">（使用ファイル：
+    <h3 class="accordion_title js-accordion-title"><span class="subKensaku">検索ワード①</span>差別語・不快語・要注意語・商標
+      <br><span class="titleList">（使用ファイル：
         <span id="safuchuFileName">use_with_caution_terms.csv
         </span>）
       </span>
@@ -85,9 +85,10 @@
 
 
   <section id="section1">
-    <h3 class="accordion_title js-accordion-title">表記統一ワードリスト
-      <span class="titleList">（使用ファイル：
-        <span id="criteriaInputFileName">小学館QC標準表記統一ワードリスト0723.csv
+    <h3 class="accordion_title js-accordion-title"><span class="subKensaku">検索ワード②</span>表記統一表
+      <br><span class="titleList">（使用ファイル：
+        <!-- <span id="criteriaInputFileName">小学館QC標準表記統一ワードリスト0723.csv -->
+                  <span id="criteriaInputFileName">小学館QC標準表記統一表0723.csv
         </span>）
       </span>
     </h3>
@@ -109,12 +110,19 @@
 
   </section>
 
+  <p class="aboutDatabase">※差別語、商標などの詳しい情報は、小学館編集総務局が作成した下記データベースをご参照ください。
+    <br>
+    <a class="toDatabase" href="https://hensyuu-soumu-news.shogakukan.co.jp/sabetsugo-fukaigo-yochuigo-db"
+      target="_blank"><span class="arrow"></span>差別語・不快語・要注意語データベース</a>　
+    <a class="toDatabase" href="https://hensyuu-soumu-news.shogakukan.co.jp/sabetsugo-fukaigo-yochuigo-db"
+      target="_blank"><span class="arrow"></span>特定商品名一覧表（主要登録商標リスト）</a>
 
+  </p>
 
   <h3>　　調べたいテキスト</h3>
 
   <div id="section2">
-    <textarea id="input" placeholder="調べたいテキストを入力してください"></textarea>
+    <textarea id="input" placeholder="調べたいテキストを入力して、下のcheckボタンを押してください"></textarea>
   </div>
 
   <p>
@@ -140,11 +148,11 @@
 
   </p>
 
-  <div id="qualityCenter">本WEBアプリは小学館出版クォリティーセンターが制作しました<br><br>last updated at 2026/8/7
+  <div id="qualityCenter">本WEBアプリは小学館出版クォリティーセンターが制作しました<br><br>last updated at 2026/8/24
     <br>coding by Nobuo Tsukahara
   </div>
 
-  <script src="main.js"></script>
+  <script src="main.js?v=20260824"></script>
 </body>
 
 </html>

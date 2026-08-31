@@ -25,7 +25,14 @@ body {
   margin: 5px 30px 10px 30px;
   padding: 5px 10px 10px 10px;
   border: 1px solid black;
+  max-width: 750px;
 }
+
+#section0:hover,#section1:hover {
+  background-color: gainsboro;
+}
+
+
 
 #section2 {
   margin: 5px 30px 10px 30px;
@@ -316,7 +323,7 @@ td:nth-of-type(5) {
   font-size: 110%;
   background: black;
   font-family: "YuMincho", "游明朝", "Hiragino Mincho ProN", serif;
-  font-feature-settings: "palt";
+  /* font-feature-settings: "palt"; */
 }
 
 .pc-nav ul {
@@ -331,7 +338,8 @@ td:nth-of-type(5) {
 .pc-nav ul li a {
   display: block;
   text-decoration: none;
-  margin: 0 10px 0 0;
+  /* margin: 0 10px 0 0; */
+    margin: 0 0 0 0;
   padding: 2px 0 0 0;
   color: white;
 }
@@ -485,6 +493,10 @@ td:nth-of-type(5) {
   color: red;
 }
 
+.green{
+  color: mediumseagreen;
+}
+
 .blue {
   color: dodgerblue;
 }
@@ -494,6 +506,34 @@ td:nth-of-type(5) {
   font-family: sans-serif;
 }
 
+#updateNews{
+  position: absolute;
+  margin: -35px 0 0 30px;
+}
+
+.subKensaku{
+  display:inline-block;
+  font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid black;
+  padding: 2px 4px;
+  margin: -50px 5px 0 0;
+  vertical-align:20%;
+  background-color: black;
+  color:white;
+}
+
+.subKensaku2{
+  display:inline-block;
+  font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid black;
+  padding: 2px 4px;
+  margin: 0px 3px 0 3px;
+  background-color: black;
+  color:white;
+    font-weight: bold;
+}
 .qq:hover {
   display: inline-block;
   transform: rotate(360deg);
@@ -549,21 +589,32 @@ td:nth-of-type(5) {
   background: lavender;
 }
 
+.aboutDatabase{
+   max-width:680px;
+    padding: 0.5em 1em;
+    margin: 5px 40px 10px 40px;
+    background-color: gainsboro;
+    border-radius: 5px;
+    font-size: 90%;
+}
+
 .toDatabase {
   display: inline-block;
-  /* padding: 0.5em 1em;
+  padding: 0.5em 1em;
   margin: 0.5em 0;
-  background-color: #4af;
+
+    background-color: white;
     border-radius: 5px;
-  color: white; */
+  color: white;
 
   color: black;
   text-decoration: none;
 }
 
 .toDatabase:hover {
-  color: red; 
-  text-decoration: underline;
+  background-color: darkgray;
+  /* color: red; 
+  text-decoration: underline; */
 }
 
 .arrow {

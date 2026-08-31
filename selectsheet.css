@@ -371,7 +371,7 @@ td:nth-of-type(4) {
   font-size: 110%;
   background: black;
   font-family: "YuMincho", "游明朝", "Hiragino Mincho ProN", serif;
-  font-feature-settings: "palt";
+  /* font-feature-settings: "palt"; */
 }
 
 .pc-nav ul {
@@ -386,7 +386,7 @@ td:nth-of-type(4) {
 .pc-nav ul li a {
   display: block;
   text-decoration: none;
-  margin: 0 10px 0 0;
+  margin: 0 0 0 0;
   padding: 2px 0 0 0;
   color: white;
 }
@@ -544,6 +544,11 @@ td:nth-of-type(4) {
 
 .red {
   color: red;
+}
+
+
+.green{
+  color: mediumseagreen;
 }
 
 .blue {
