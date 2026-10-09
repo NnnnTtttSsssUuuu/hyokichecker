@@ -8,6 +8,7 @@
   let criteriaTextGreen = [];
   let criteriaTextGreen2 = [];
   let criteriaCSV = [];
+let safuchuId = [];
 
   //立ち上げ時の処理
   document.addEventListener("DOMContentLoaded", function () {
@@ -109,6 +110,9 @@
       criteriaTextOrange.push("");
       orangeLength = orangeLength + 1;
     }
+
+
+    
 
     while (green2Length < greenLength) {
       criteriaTextgreen2.push("");
@@ -222,9 +226,6 @@
     //プリントボタン表示
     document.getElementById("endOfTable").style.display = "block";
 
-    // console.log("outputText", outputText);
-    // alert("チェック終了");
-
     //赤青ワード表を入れる
     const allTable = document.createElement("table");
     const allhead = document.createElement("thead");
@@ -257,8 +258,8 @@
     //2行目以降を入れる
     for (let i = 0; i < maxLength; i++) {
 
-      // if (countRed[i] + countBlue[i] > 0) {
-      if (countRed[i] > 0) {
+      if (countRed[i] + countBlue[i] > 0) {
+      // if (countRed[i] > 0) {
         const row = document.createElement("tr");
 
         //第1列
@@ -303,16 +304,22 @@
     const yellowtd2 = document.createElement("th");
     const yellowtd3 = document.createElement("th");
     const yellowtd4 = document.createElement("th");
+const yellowtd5 = document.createElement("th");
+
 
     yellowtd1.textContent = "No.";
     yellowtd2.textContent = "差不注商ワード";
     yellowtd3.textContent = "出現数";
     yellowtd4.innerHTML = "注記 <span class=titlemini>[★は特に注意が必要な商標]</span>";
+yellowtd5.innerHTML = " <span class=titlemini>差別語・不快語・要注意語DB</span>";
+  
 
     yellowtr.appendChild(yellowtd1);
     yellowtr.appendChild(yellowtd2);
     yellowtr.appendChild(yellowtd3);
     yellowtr.appendChild(yellowtd4);
+yellowtr.appendChild(yellowtd5);
+
 
     yellowhead.appendChild(yellowtr);
     yellowTable.appendChild(yellowhead);
@@ -329,6 +336,7 @@
         const cellText1 = document.createElement("td");
         const cellText2 = document.createElement("td");
         const cellText3 = document.createElement("td");
+const cellText4 = document.createElement("td");
 
         cell.textContent = i + 1;
         row.appendChild(cell);
@@ -343,8 +351,20 @@
 
         //第4列
         cellText3.innerHTML = criteriaTextOrange[i];
-
         row.appendChild(cellText3);
+
+//第5列
+if(safuchuId[i] > 0){
+
+      document.querySelector('#criteriaYellowList th:nth-of-type(5)').style.display = 'table-cell';
+
+
+cellText4.innerHTML = "<button class=\"toList\">ページをひらく<span class = \"listId\">"+safuchuId[i]+"</span></button>";
+
+row.appendChild(cellText4);
+}
+
+
         yellowtbody.appendChild(row);
       }
     }
@@ -410,6 +430,19 @@
     greenList.appendChild(greenTable);
 
 
+
+
+//差不注DBページへ
+document.addEventListener("click", function(event) {
+    const button = event.target.closest(".toList");
+        if (!button) return;
+        const listId = button.querySelector(".listId").textContent;
+
+
+//本リンク
+    window.open(`http://www.sho.co.jp/quality-center/sabetsugo-fukaigo-yochuigo-db/index.html#/w/${listId}`, "_blank");
+
+});
   });  // チェックボタン押下の処理終わり
 
 
@@ -430,7 +463,6 @@
     document.getElementById('section3').style.display = 'none';
     document.getElementById('endOfTable').style.display = 'none';
   });
-
 
   // 差不注ワードクリアボタン押下の処理
   document.querySelector('#clearSafuchuButton').addEventListener('click', () => {
@@ -518,6 +550,7 @@
       const row = rows[i].split(',');
       criteriaTextYellow[i] = row[0];
       criteriaTextOrange[i] = row[1];
+safuchuId[i] = row[2];
     }
   }
 
@@ -545,7 +578,6 @@
     const safuchutd2 = document.createElement("th");
 
     safuchutd1.textContent = "差不注商ワード";
-    // safuchutd2.textContent = "差不注商ワードの注記";
     safuchutd2.innerHTML = "注記 <span class=titlemini>[★は特に注意が必要な商標]</span>";
 
     safuchuthead.appendChild(safuchutd1);
@@ -669,6 +701,9 @@
     tateTable.appendChild(tatetbody);
     tateList.appendChild(tateTable);
   }
+
+
+
 
 
   //クレジット
